@@ -17,12 +17,13 @@ RUN apk --no-cache add gcc musl-dev libffi-dev openssl-dev openssl python-dev py
     wget https://codeload.github.com/XX-net/XX-Net/zip/${XX_VERSION} &&  \
     unzip ${XX_VERSION} && \
     pip install pyOpenSSL && \
+    mv /home/XX-Net${XX_VERSION} /home/xx-net && \
     apk del --purge libffi-dev openssl-dev gcc musl-dev && \
     rm -rf /root/.cache && \
     rm -rf /tmp/*
 
 EXPOSE 8087 8086 8085
 
-VOLUME ["/home/XX-Net-${XX_VERSION}/data"]
+VOLUME ["/home/xx-net/data"]
 
-CMD ["python","/home/XX-Net-${XX_VERSION}/code/default/launcher/start.py"]
+CMD ["python","/home/xx-net/code/default/launcher/start.py"]
