@@ -27,9 +27,9 @@ RUN mkdir /home/xx-net/data/gae_proxy && \
     echo [listen] > /home/xx-net/data/gae_proxy/manual.ini && \
     echo ip = 0.0.0.0 >> /home/xx-net/data/gae_proxy/manual.ini \
     echo nohup python /home/xx-net/code/default/launcher/start.py & > command && \
-    echo sleep 10s >> command && \
-    echo wget -O - http://127.0.0.1:8085/config?cmd=set_config&x_tunnel_enable=0 >> command && \
-    echo wget -O - http://127.0.0.1:8085/config?cmd=set_config&allow_remote_connect=1 >> command
+    echo "sleep 10s" > command && \
+    echo "wget -O - http://127.0.0.1:8085/config?cmd=set_config&x_tunnel_enable=0" >> command && \
+    echo "wget -O - http://127.0.0.1:8085/config?cmd=set_config&allow_remote_connect=1" >> command
 
 # 关闭 x-tunnel
 # Close x-tunnel
