@@ -25,4 +25,4 @@ EXPOSE 8087 8086 8085
 
 VOLUME ["/home/XX-Net-${XX_VERSION}/data"]
 
-CMD ["python","/home/home/XX-Net-${XX_VERSION}/code/default/launcher/start.py"]
+CMD ["python","/home/XX-Net-${XX_VERSION}/code/default/launcher/start.py"]
