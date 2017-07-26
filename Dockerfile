@@ -13,11 +13,11 @@ WORKDIR /home
 
 # 下载frp 并且部署环境
 # download frp & build env
-RUN apk --no-cache add gcc libffi-dev openssl-dev python-dev py-pip && \
+RUN apk --no-cache add gcc libffi-dev openssl-dev openssl python-dev py-pip && \
     wget https://codeload.github.com/XX-net/XX-Net/zip/${XX_VERSION} &&  \
     unzip ${XX_VERSION} && \
-    pip install pyOpenSSL &&
-    apk del --purge libffi-dev && \
+    pip install pyOpenSSL && \
+    apk del --purge libffi-dev openssl-dev gcc && \
     rm -rf /root/.cache && \
     rm -rf /tmp/*
 
