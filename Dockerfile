@@ -30,7 +30,7 @@ RUN mkdir -p /home/xx-net/data/gae_proxy && \
     echo "sleep 10s" >> command && \
     echo "wget -O - 'http://127.0.0.1:8085/config?cmd=set_config&x_tunnel_enable=0'" >> command && \
     echo "wget -O - 'http://127.0.0.1:8085/config?cmd=set_config&allow_remote_connect=1'" >> command && \
-    echo "read" >> command
+    echo "tail -f command" >> command
 
 # 关闭 x-tunnel
 # Close x-tunnel
@@ -39,7 +39,7 @@ RUN mkdir -p /home/xx-net/data/gae_proxy && \
 # Allow remote access by 8085
 # http://127.0.0.1:8085/config?cmd=set_config&allow_remote_connect=1
 
-EXPOSE 8087 8086 8085
+EXPOSE 8087 8086 8085 1080
 
 VOLUME ["/home/xx-net/data"]
 
