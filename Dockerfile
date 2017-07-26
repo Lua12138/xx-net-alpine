@@ -23,7 +23,7 @@ RUN apk --no-cache add gcc musl-dev libffi-dev openssl-dev openssl python-dev py
     rm -rf /root/.cache && \
     rm -rf /tmp/*
 
-RUN mkdir /home/xx-net/data/gae_proxy && \
+RUN mkdir -p /home/xx-net/data/gae_proxy && \
     echo "[listen]" > /home/xx-net/data/gae_proxy/manual.ini && \
     echo "ip = 0.0.0.0" >> /home/xx-net/data/gae_proxy/manual.ini \
     echo "nohup python /home/xx-net/code/default/launcher/start.py &" > command && \
