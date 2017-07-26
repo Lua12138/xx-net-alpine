@@ -5,19 +5,19 @@
 FROM alpine
 # 镜像作者信息
 MAINTAINER forDream "gam2046@gmail.com"
-# frp 版本
-# frp version
+# xx-net 版本
+# xx-net version
 ARG XX_VERSION=3.3.1
 
 WORKDIR /home
 
-# 下载frp 并且部署环境
-# download frp & build env
-RUN apk --no-cache add gcc libffi-dev openssl-dev openssl python-dev py-pip && \
+# 下载xx-net 并且部署环境
+# download xx-net & build env
+RUN apk --no-cache add gcc musl-dev libffi-dev openssl-dev openssl python-dev py-pip && \
     wget https://codeload.github.com/XX-net/XX-Net/zip/${XX_VERSION} &&  \
     unzip ${XX_VERSION} && \
     pip install pyOpenSSL && \
-    apk del --purge libffi-dev openssl-dev gcc && \
+    apk del --purge libffi-dev openssl-dev gcc musl-dev && \
     rm -rf /root/.cache && \
     rm -rf /tmp/*
 
